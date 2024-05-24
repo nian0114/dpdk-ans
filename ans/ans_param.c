@@ -74,6 +74,16 @@
 #include "ans_main.h"
 #include "ans_param.h"
 
+#include <rte_version.h>
+#include <rte_ether.h>
+
+
+#if (RTE_VERSION >= RTE_VERSION_NUM(19, 8, 0, 0))
+#define ETHER_MAX_LEN RTE_ETHER_MAX_LEN
+#define ETHER_ADDR_LEN RTE_ETHER_ADDR_LEN
+#define ether_addr rte_ether_addr
+#define ether_hdr rte_ether_hdr
+#endif
 
 /**********************************************************************
 *@description:
